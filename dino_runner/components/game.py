@@ -27,15 +27,17 @@ class Game:
 
         self.points = 0
         self.running = True
+        self.restart = False
 
     def run(self):
         self.playing = True
+        self.restart = False
         while self.playing:
             self.events()
             self.updates() 
             self.draw()
 
-        pygame.quit()
+        #pygame.quit()
     
     def events(self):
         for event in pygame.event.get():
