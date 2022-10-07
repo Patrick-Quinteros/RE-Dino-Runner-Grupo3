@@ -1,11 +1,14 @@
 import pygame
+import random
 from dino_runner.components.player_hearts.heart import Heart
+
 from dino_runner.utils.constants import HEART_COUNT
 
 
 class PlayerHeartManager:
     def __init__(self):
         self.heart_count = HEART_COUNT
+    
 
     def reduce_heart(self):
         self.heart_count = self.heart_count - 1
@@ -17,7 +20,15 @@ class PlayerHeartManager:
         for counter in range(self.heart_count):
             heart = Heart(x_position, y_position)
             heart.draw(screen)
-            x_position = x_position + 30
+            x_position += 30
+
+        for increment in self.heart < 4:
+            self.heart.draw(screen)
 
     def reset_hearts(self):
         self.heart_count = HEART_COUNT
+
+
+
+    
+    
