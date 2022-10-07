@@ -1,6 +1,7 @@
 from msilib.schema import Class
 from dino_runner.utils.constants import SCREEN_WIDTH
 from pygame.sprite import Sprite
+import random
 
 class LifeAdd(Sprite):
 
@@ -8,7 +9,7 @@ class LifeAdd(Sprite):
       self.image = image
       self.rect = self.image[self.type].get_rect()
       self.type = type
-      self.rect.x = SCREEN_WIDTH
+      self.rect.x = SCREEN_WIDTH + random.randint(4000, 5000)
       
 
     def update(self, game_speed, lifes):
