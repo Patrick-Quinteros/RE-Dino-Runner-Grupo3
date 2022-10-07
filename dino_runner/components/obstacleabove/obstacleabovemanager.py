@@ -1,25 +1,24 @@
 from code import interact
 from pickle import FALSE
 import pygame
-from dino_runner.components.obstacles.cactus import Cactus
-from dino_runner.components.obstacles.obstacles import Obstacle
-from dino_runner.utils.constants import SMALL_CACTUS
+from dino_runner.components.obstacleabove.bird import Bird
+from dino_runner.components.obstacleabove.obstacleabove import ObstacleAbove
+from dino_runner.utils.constants import BIRD
 
 
-
-class ObstacleManager():
+class ObstacleManagerAvobe():
     def __init__(self):
-        self.obstacles = []
+        self.obstacles_above = []
 
     def update(self, game):
 
-        if len(self.obstacles) == 0:
-            self.obstacles.append(Cactus(SMALL_CACTUS))
+        if len(self.obstacles_above) == 0:
+            self.obstacles_above.append(Bird(BIRD))
             
 
-        for obstacle in self.obstacles:
-            obstacle.update(game.game_speed, self.obstacles)
-            if game.player.dino_rect.colliderect(obstacle.rect):
+        for object_above in self.obstacles_above:
+            object_above.update(game.game_speed, self.obstacles_above)
+            if game.player.dino_rect.colliderect(object_above.rect):
                 pygame.time.delay(500)
                 #game.playing = False
                 #game.restart = True
@@ -27,14 +26,13 @@ class ObstacleManager():
                 if not game.player.shield:
                     
 
-                    self.obstacles = []
+                    self.obstacles_above = []
                     game.player_heart_manager.reduce_heart()
 
                     if game.player_heart_manager.heart_count > 0:
                         game.player.shield = True
                         game.player.show_text = False
                         start_time = pygame.time.get_ticks()
-                        #game.player.shield_timer_up = start_time + 1000
                     else:
                         pygame.time.delay(500)
                         game.playing = False
@@ -43,11 +41,11 @@ class ObstacleManager():
                         
                         break
                 else:
-                    self.obstacles.remove(obstacle)
+                    self.obstacles_above.remove(object)
 
     def draw(self, screen):
-        for obstacle in self.obstacles:
-          obstacle.draw(screen)
+        for object_above in self.obstacles_above:
+          object_above.draw(screen)
 
-    def reset_obstacles(self, self1):
-        self.obstacles = []
+    def reset_obstacles_avobe(self):
+        self.obstacles_above = []
