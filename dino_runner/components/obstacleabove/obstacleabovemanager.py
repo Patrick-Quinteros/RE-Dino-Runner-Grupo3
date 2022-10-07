@@ -20,9 +20,7 @@ class ObstacleManagerAvobe():
             object_above.update(game.game_speed, self.obstacles_above)
             if game.player.dino_rect.colliderect(object_above.rect):
                 pygame.time.delay(500)
-                #game.playing = False
-                #game.restart = True
-                #break
+                
                 if not game.player.shield:
                     
 

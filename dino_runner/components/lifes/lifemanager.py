@@ -1,7 +1,7 @@
 import pygame
 from dino_runner.components.lifes.heart_show import Live
 from dino_runner.components.lifes.life import LifeAdd
-from dino_runner.utils.constants import HEART_LIS, HEART_COUNT
+from dino_runner.utils.constants import HEART_LIS
 
 
 class LifeManager():
@@ -22,9 +22,17 @@ class LifeManager():
                   self.life = []
                   game.player_heart_manager.increment_heart()
 
+        
+                  
+                
+
+
                   # if game.player_heart_manager.heart_count < 4:
                   #     game.player.shield = False
 
     def draw(self, screen):
         for heart in self.life:
           heart.draw(screen)
+
+    def reset_life(self):
+        self.life = []

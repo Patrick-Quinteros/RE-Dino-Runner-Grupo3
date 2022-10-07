@@ -43,6 +43,7 @@ class Game:
         self.obstacle_manager.reset_obstacles(self)
         self.player_heart_manager.reset_hearts()
         self.power_up_manager.reset_power_ups(self.points)
+        self.life_manager.reset_life()
         self.above_manager.reset_obstacles_avobe()
         self.playing = True
         #self.restart = False
@@ -83,6 +84,7 @@ class Game:
 
         pygame.display.update()
         pygame.display.flip()
+
 
     def draw_background(self):
         image_width = BG.get_width()
