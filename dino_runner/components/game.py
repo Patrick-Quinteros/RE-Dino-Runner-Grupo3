@@ -10,6 +10,7 @@ from dino_runner.components.menu_score.text_utils import get_score_element
 from dino_runner.components.menu_score.text_utils import get_centered_message
 from dino_runner.components.player_hearts.player_heart_manager import PlayerHeartManager
 from dino_runner.components.powerup.powerupmanager import PowerUpManager
+from dino_runner.components.lifes.lifemanager import LifeManager
 
 
 class Game:
@@ -34,6 +35,7 @@ class Game:
         self.death_count = 0
         self.player_heart_manager = PlayerHeartManager()
         self.power_up_manager = PowerUpManager()
+        self.life_manager = LifeManager()
 
     def run(self):
         self.obstacle_manager.reset_obstacles(self)
@@ -59,6 +61,7 @@ class Game:
         self.player.update(user_input)
         self.obstacle_manager.update(self)
         self.power_up_manager.update(self.points, self.game_speed, self.player)
+        self.life_manager.update(self)
         
         
     def draw(self):
@@ -69,6 +72,7 @@ class Game:
         self.obstacle_manager.draw(self.screen)
         self.player_heart_manager.draw(self.screen)
         self.power_up_manager.draw(self.screen) 
+        self.life_manager.draw(self.screen)
 
         self.score()
 

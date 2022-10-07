@@ -12,6 +12,9 @@ class PlayerHeartManager:
 
     def reduce_heart(self):
         self.heart_count = self.heart_count - 1
+    
+    def increment_heart(self):
+        self.heart_count = self.heart_count + 1
 
     def draw(self, screen):
         x_position = 10
@@ -22,8 +25,7 @@ class PlayerHeartManager:
             heart.draw(screen)
             x_position += 30
 
-        for increment in self.heart < 4:
-            self.heart.draw(screen)
+
 
     def reset_hearts(self):
         self.heart_count = HEART_COUNT
